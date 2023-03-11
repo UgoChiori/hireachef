@@ -1,6 +1,7 @@
-// import { meta} from "core-js/fn/reflect";
+
 import { createRouter, createWebHistory } from "vue-router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,8 +18,17 @@ const router = createRouter({
     {
       path: "/chefs",
       component: () => import("../components/ChefList.vue"),
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true, },
     },
+    {
+      path: "/chefs/:id",
+      component: () => import("../components/ChefDetails.vue"),
+    },
+    {
+      path: "/chefs/:id/bookingform",
+      component: () => import("../components/BookingForm.vue"),
+
+    }
   ],
 });
 
@@ -36,13 +46,12 @@ const getCurrentUser = () => {
 };
 
 router.beforeEach(async (to, from, next) => {
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (getCurrentUser()) {
-      next();
-    } else {
-      alert("You must be logged in to view this page");
-      next("/");
-    }
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const currentUser = await getCurrentUser();
+  if (requiresAuth && !currentUser) {
+    next("/register");
+  } else if (requiresAuth && currentUser) {
+    next();
   } else {
     next();
   }
