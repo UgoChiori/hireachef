@@ -4,43 +4,37 @@
     <router-link to="/chefs">Chefs</router-link>
     <router-link to="/signin">Signin</router-link>
     <router-link to="/register">Register</router-link>
-    <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
-    
+    <button @click="handleSignOut" v-if="isLoggedIn" class="signout">Sign Out</button>
   </nav>
   <router-view />
-  
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import router from "./router";
+import { useRouter } from "vue-router";
 // import PaginationPage from './data/PaginationPage.vue'
 
 const isLoggedIn = ref(false);
+const router = useRouter();
 
 let auth;
-onMounted(()=>{
-auth = getAuth();
-onAuthStateChanged(auth, (user)=>{
-  if (user) {
-    isLoggedIn.value = true;
-  } else {
-    isLoggedIn.value = false;
-  }
-})
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
 });
 
 const handleSignOut = () => {
-  signOut(auth).then(()=> {
-    router.push("/")
-  })
+  signOut(auth).then(() => {
+    router.push("/");
+  });
 }
-
-
-
-
-
 
 
 </script>
@@ -70,10 +64,9 @@ nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  
+
   background-color: #f1f1f1;
   padding: 20px;
-  
 }
 nav a {
   text-decoration: none;
@@ -94,11 +87,24 @@ nav a {
   background-color: #e1dddd;
   padding: 20px;
   border-bottom: 0.1px solid rgb(228, 224, 224);
-  
 }
 nav a:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(43, 42, 42);
+  transition: all 0.3s ease;
+}
+.signout {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+.signout:hover {
+  background-color: grey;
+  color: white;
   transition: all 0.3s ease;
 }
 </style>

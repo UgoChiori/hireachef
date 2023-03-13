@@ -48,7 +48,7 @@ const signIn = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then((data) => {
       console.log("Successfully Signed In", data);
-      // router.push("/chefs");
+      router.push("/chefs");
     })
     .catch((error) => {
       console.log(error);
@@ -124,7 +124,7 @@ const signInWithGoogle = () => {
 .wrapper input {
   width: 100%;
   height: 40px;
-  border: none;
+  border: 1px solid rgb(74, 69, 69);;
   border-radius: 5px;
   background: #fff;
   padding: 0 20px;
