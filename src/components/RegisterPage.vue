@@ -80,7 +80,7 @@ const provider = new GoogleAuthProvider();
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  background: rgb(180, 106, 171);
+  /* background: rgb(180, 106, 171); */
 }
 body {
   background: #f5f5f5;
@@ -102,12 +102,13 @@ body {
   width: 50%;
   height: 100%;
   padding: 0 50px;
+  display: flex;
 }
 
 .photo img {
   width: 100%;
   height: 100%;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 .wrapper {
   /* background: black; */
@@ -138,13 +139,14 @@ body {
 h1 {
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: black;
   margin-bottom: 25px;
   text-transform: capitalize;
   text-align: center;
 }
 .details {
   /* border: 1px solid black; */
+  margin: 15px;
   /* background-color: #f5f5f5; */
   height: 28px;
   display: flex;
@@ -160,10 +162,10 @@ h1 {
 .details p {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color:black;
 }
 .details a {
-  color: #fff;
+  color: black;
 
   font-weight: 600;
 }
@@ -176,7 +178,7 @@ h1 {
 .button button {
   width: 100%;
   height: 40px;
-  background: #fff;
+  background: black;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -187,16 +189,17 @@ h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgb(180, 106, 171);
+  color: whitesmoke;
   cursor: pointer;
 }
 .button button:hover {
-  color: #fff;
-  background-color: rgb(162, 53, 150);
+  color: black;
+  background-color: white;
   transition: all 0.3s ease;
 }
 .button button:last-child {
   margin-right: 0;
+  /* color: black; */
 }
 
 .footer {
@@ -204,18 +207,22 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  color: black;
+  border: 1px solid black;
 }
 .footer p {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: black;
   font-size: 12px;
   font-weight: 500;
 }
 .footer a {
-  color: #fff;
+  color: black;
   /* text-decoration: none; */
   font-weight: 600;
   margin-left: 5px;
 }
+
+
 </style> 

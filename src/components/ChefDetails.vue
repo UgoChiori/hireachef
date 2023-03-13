@@ -23,7 +23,7 @@
         <div class="chef-details-phone">
           <h3>{{ item.phone }}</h3>
         </div>
-        <div class="chef-details-button">
+        <div class="chef-button">
           <button v-on:click="onClickBookNow">Book Now</button>
           <button>Message</button>
         </div>
@@ -66,3 +66,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.chef-details {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 400px;
+  background-color: rgb(197, 194, 194);
+  /* height: 200px; */
+  /* background-color: #f5f5f5; */
+}
+</style>

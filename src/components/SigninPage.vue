@@ -48,7 +48,7 @@ const signIn = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then((data) => {
       console.log("Successfully Signed In", data);
-      router.push("/chefs");
+      // router.push("/chefs");
     })
     .catch((error) => {
       console.log(error);
@@ -101,7 +101,7 @@ const signInWithGoogle = () => {
 .photo img {
   width: 100%;
   height: 100%;
-  opacity: 0.6;
+  /* opacity: 0.6; */
   border-radius: 10px 0px 0px 10px;
 }
 .wrapper {
@@ -134,7 +134,7 @@ const signInWithGoogle = () => {
 h1 {
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: black;
   margin-bottom: 25px;
   text-transform: capitalize;
   text-align: center;
@@ -154,10 +154,10 @@ h1 {
 .details p {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: black;
 }
 .details a {
-  color: #fff;
+  color: black;
   font-weight: 600;
 }
 .button {
@@ -169,7 +169,7 @@ h1 {
 .button button {
   width: 100%;
   height: 40px;
-  background: #fff;
+  background: black;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -180,16 +180,16 @@ h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgb(180, 106, 171);
+  color: whitesmoke;
   cursor: pointer;
 }
 .button button:hover {
-  background-color: rgb(162, 53, 150);
-  color: #fff;
+  color: black;
+  background-color: white;
   transition: all 0.3s ease;
 }
 .forgot-password a{
-  color: #fff;
+  color: black;
 }
 
 </style>
