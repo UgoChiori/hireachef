@@ -19,7 +19,7 @@
           View Profile
         </button>
         <button v-on:click="onClickBookNow">Book Now</button>
-        <button v-on:click="onClickMessage">Message</button>
+        <!-- <button v-on:click="onClickMessage">Message</button> -->
       </div>
     </div>
   </div>
@@ -123,37 +123,36 @@ h1 {
   margin-top: 100px;
 }
  @media screen and (max-width: 768px) {
-  .chef-image {
-    /* border: 1px solid black; */
-    margin: 0 2px;
-  }
+  
   .list-container{
   display: grid;
-   grid-template-rows: repeat(2, 1fr);
-   grid-gap: 5px;
+   grid-template-rows: repeat(1, 1fr);
+   grid-gap: 2px;
   justify-items: center;
   align-items: center;
-  /* margin: 10px; */
+  margin: 1px;
   padding: 5px;
-  /* margin-top: 200px; */
+  margin-top: 50px;
   margin-bottom: 200px;
-  }
+  width: 50%;
+  flex-wrap: nowrap;
+}
   .list-items {
     border: 1px solid black;
     border-radius: 8px;
-    margin: 15px;
-    width: 200px;
+    margin: 5px;
+    width: 150px;
     height: 200px;
     background-color: #e1dddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   .chef-button {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    /* margin: 5px; */
+    margin: 5px;
     padding: 5px;
-    width: 210px;
+    width: 150px;
     height: 50px;
   }
   h1 {

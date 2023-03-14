@@ -1,7 +1,6 @@
 <template>
-    <h1>Chef Details</h1>
+  <h4>Chef Details</h4>
   <div class="chef-details">
-  
     <div v-for="item in chefs" v-bind:key="item.id.value">
       <div class="chef-details-image">
         <img
@@ -12,24 +11,20 @@
       </div>
       <div class="chef-details-info">
         <div class="chef-details-name">
-          <h2>{{ item.name.first }} {{ item.name.last }}</h2>
-        </div>
-        <p>{{ item.name.gender }}</p>
-        <div class="chef-details-location">
-          <h3>{{ item.location.city }}, {{ item.location.state }}</h3>
-        </div>
-        <div class="chef-details-email">
-          <h3>{{ item.email }}</h3>
-        </div>
-        <div class="chef-details-phone">
-          <h3>{{ item.phone }}</h3>
-        </div>
-        <div class="chef-button">
-          <button v-on:click="onClickBookNow">Book Now</button>
-          <button>Message</button>
+          <div class="list-items-deets">
+            <p>{{ item.name.first }} {{ item.name.last }}</p>
+            <p>{{ item.name.gender }}</p>
+            <p>{{ item.location.city }}</p>
+            <!-- <p>{{ item.email }}</p> -->
+            <p>{{ item.phone }}</p>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="chef-button">
+    <button v-on:click="onClickBookNow">Book Now</button>
+    <button>Message</button>
   </div>
 </template>
 
@@ -44,7 +39,6 @@ export default {
     return {
       chefs: [],
     };
-
   },
   created() {
     axios.get("https://randomuser.me/api/?results=1").then((response) => {
@@ -63,7 +57,6 @@ export default {
       console.log("Book Now");
       router.push("/chefs/:id/bookingform");
     },
-
   },
 };
 </script>
@@ -77,7 +70,80 @@ export default {
   height: 200px;
   background-color: #e1dddd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-} 
+  /* border: 2px solid red; */
+  margin-left: 500px;
+}
+h4 {
+  text-align: center;
+  margin-top: 100px;
+}
+.chef-details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+.chef-details-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+.list-items-deets {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+.chef-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 550px;
+  padding: 10px;
+}
 
+@media (max-width: 768px) {
+  .chef-details {
+    width: 300px;
+    height: 200px;
+    margin-left: 35px;
+    margin-top: 50px;
+  }
+  .chef-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .chef-details-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .list-items-deets {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .chef-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 100px;
+    padding: 10px;
+  }
+  h4{
+    margin-top: 300px;
 
+  }
+}
 </style>
