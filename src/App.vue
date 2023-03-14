@@ -110,6 +110,8 @@ nav a:hover {
 @media screen and (max-width: 768px) {
   nav {
     flex-direction: column;
+    position: absolute;
+    /* border: 1px solid red; */
   }
   nav a {
     margin: 5px;

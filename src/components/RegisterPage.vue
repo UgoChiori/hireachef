@@ -112,6 +112,7 @@ body {
 }
 .wrapper {
   /* background: black; */
+  margin-top: 120px;
   padding: 50px;
   width: 50%;
   height: 100%;
@@ -232,7 +233,7 @@ h1 {
   .wrapper {
     width: 100%;
     border-radius: 10px;
-    margin-top: 300px;
+    margin-top: 200px;
   }
   .wrapper input{
   width: 80%;

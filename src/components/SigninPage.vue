@@ -104,6 +104,8 @@ const signOut = () => {
   width: 50%;
   height: 100%;
   border-radius: 0px 10px 10px 0px;
+  margin-top: 150px;
+
 }
 .wrapper label {
   color: #fff;
@@ -192,7 +194,7 @@ h1 {
   .wrapper {
     width: 100%;
     border-radius: 10px;
-    margin-top: 300px;
+    margin-top: 200px;
   }
   .wrapper input {
     width: 80%;
