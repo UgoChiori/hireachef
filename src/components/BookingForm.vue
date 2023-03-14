@@ -74,6 +74,7 @@ export default {
   margin: 0 auto;
   padding: 20px;
   border: none;
+  margin-top: 150px;
   border-radius: 5px;
   background-color: rgb(189, 186, 186);
 }
@@ -116,5 +117,58 @@ export default {
 .booking-form form .form-group button:hover {
   background-color: #eee;
   transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .booking-form {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: none;
+    
+    margin-top: 250px;
+    border-radius: 5px;
+    background-color: rgb(189, 186, 186);
+  }
+  .booking-form h2 {
+    text-align: center;
+    color: whitesmoke;
+  }
+  .booking-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  .booking-form form .form-group {
+    margin-bottom: 20px;
+  }
+  .booking-form form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: whitesmoke;
+    font-weight: 500;
+  }
+  .booking-form form .form-group input,
+  .booking-form form .form-group textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .booking-form form .form-group textarea {
+    height: 100px;
+  }
+  .booking-form form .form-group button {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: black;
+    cursor: pointer;
+  }
+  .booking-form form .form-group button:hover {
+    background-color: #eee;
+    transition: 0.3s;
+  }
 }
 </style>
