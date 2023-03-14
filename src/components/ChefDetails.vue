@@ -1,6 +1,7 @@
-<template class="chef-details">
-  <div class="chef-details">
+<template>
     <h1>Chef Details</h1>
+  <div class="chef-details">
+  
     <div v-for="item in chefs" v-bind:key="item.id.value">
       <div class="chef-details-image">
         <img
@@ -69,15 +70,14 @@ export default {
 
 <style scoped>
 .chef-details {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
   width: 400px;
-  background-color: rgb(197, 194, 194);
-  /* height: 200px; */
-  /* background-color: #f5f5f5; */
-}
+  height: 200px;
+  background-color: #e1dddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+} 
+
+
 </style>

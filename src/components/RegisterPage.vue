@@ -208,7 +208,7 @@ h1 {
   align-items: center;
   margin-top: 20px;
   color: black;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .footer p {
   margin: 0;
@@ -222,6 +222,66 @@ h1 {
   /* text-decoration: none; */
   font-weight: 600;
   margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .inner {
+    display: none;
+  }
+  
+  .wrapper {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 300px;
+  }
+  .wrapper input{
+  width: 80%;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  background: #fff;
+  }
+  .button button {
+  width: 80%;
+  height: 30px;
+  background: black;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: whitesmoke;
+  }
+  .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    color: black;
+    /* border: 1px solid black; */
+    
+  }
+  .footer p {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .footer a {
+    color: black;
+    /* text-decoration: none; */
+    font-weight: 400;
+    margin-left: 5px;
+  }
 }
 
 

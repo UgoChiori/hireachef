@@ -1,7 +1,6 @@
 <template>
-   <h1>Chefs</h1>
+  <h1>Chefs</h1>
   <div class="list-container">
-   
     <div v-for="item in chefs" v-bind:key="item.id">
       <div class="list-items">
         <div class="chef-image">
@@ -88,11 +87,8 @@ export default {
   margin: 10px;
   padding: 10px;
   margin-top: 100px;
-
 }
 .list-items {
-  
-
   border-radius: 8px;
   margin: 10px;
   /* padding: 10px; */
@@ -108,25 +104,66 @@ export default {
   margin-left: 10px;
   font-style: italic;
 }
-.pagination-buttons {
-  padding: 8px;
-  margin: 2px;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-}
-.pagination-row {
+.chef-button {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 50px;
 }
- h1 {
+
+h1 {
+  /* border: 1px solid black; */
   text-align: center;
   font-size: 2em;
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 100px;
- }
+}
+ @media screen and (max-width: 768px) {
+  .chef-image {
+    /* border: 1px solid black; */
+    margin: 5px;
+  }
+  .list-container{
+  display: grid;
+   grid-template-rows: repeat(2, 1fr);
+   grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
+  /* margin: 10px; */
+  padding: 5px;
+  /* margin-top: 200px; */
+  margin-bottom: 200px;
+  }
+  .list-items {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 15px;
+    width: 200px;
+    height: 200px;
+    background-color: #e1dddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .chef-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 5px; */
+    padding: 5px;
+    width: 210px;
+    height: 50px;
+  }
+  h1 {
+   
+    text-align: center;
+    font-size: 1.5em;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 300px;
+    font-weight: 200;
+  }
+}
 </style>

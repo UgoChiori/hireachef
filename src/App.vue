@@ -4,7 +4,9 @@
     <router-link to="/chefs">Chefs</router-link>
     <router-link to="/signin">Signin</router-link>
     <router-link to="/register">Register</router-link>
-    <button @click="handleSignOut" v-if="isLoggedIn" class="signout">Sign Out</button>
+    <button @click="handleSignOut" v-if="isLoggedIn" class="signout">
+      Sign Out
+    </button>
   </nav>
   <router-view />
 </template>
@@ -34,9 +36,7 @@ const handleSignOut = () => {
   signOut(auth).then(() => {
     router.push("/");
   });
-}
-
-
+};
 </script>
 
 <style>
@@ -64,7 +64,6 @@ nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
   background-color: #f1f1f1;
   padding: 20px;
 }
@@ -106,5 +105,20 @@ nav a:hover {
   background-color: grey;
   color: white;
   transition: all 0.3s ease;
+}
+/* media query */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    margin: 5px;
+
+    padding: 7px;
+  }
+  .signout {
+    margin: 5px;
+    padding: 7px;
+  }
 }
 </style>

@@ -75,11 +75,14 @@ const signInWithGoogle = () => {
     .then((result) => {
       console.log(result.user);
       router.push("/chefs");
+      
+      
     })
     .catch((error) => {
       console.log(error);
       alert(error.message);
     });
+    
 };
 </script>
 <style>
@@ -191,5 +194,48 @@ h1 {
 .forgot-password a{
   color: black;
 }
-
+@media screen and (max-width: 768px) {
+  .inner {
+    display: none;
+  }
+  .wrapper {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 300px;
+  }
+  .wrapper input {
+    width: 80%;
+    height: 30px;
+    /* border: 1px solid rgb(74, 69, 69);; */
+    border-radius: 5px;
+    background: #fff;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    outline: none;
+  }
+ .button button {
+  width: 100px;
+  height: 40px;
+  background: black;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: whitesmoke;
+  
+} 
+.forgot-password a{
+  color: black;
+  font-size: 14px;
+}
+h1{
+  font-size: 20px;
+  margin-bottom: 10px;}
+}
 </style>
