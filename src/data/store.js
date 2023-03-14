@@ -5,28 +5,42 @@ import axios from "axios";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        chefs: [],
-        chef: {},
+  state: {
+    chefs: [],
+    chef: {},
+  },
+  mutations: {
+    SET_CHEFS(state, chefs) {
+      state.chefs = chefs;
+      state.chef.isUserLoggedIn = !!localStorage.getItem("token");
     },
-    mutations: {
-        SET_CHEFS(state, chefs) {
-            state.chefs = chefs;
-        },
-        actions: {
-            loadChefs(context) {
-                axios.get("https://randomuser.me/api/?results=200/vue_pagination/db")
-                .then((response) => {
-                    let reversed = response.data.results.reverse();
-                    context.commit("SET_CHEFS", reversed);
-                    })
-                    
-                }
-            },
-        },
-        getters: {
-            chefs(state) {
-                return state.chefs;
-            }
-        }
+    cleanAuth(state) {
+      state.chef.isUserLoggedIn = false;
+      localStorage.removeItem("token");
+    },
+    setAuth(state, token) {
+      state.chef.isUserLoggedIn = true;
+      localStorage.setItem("token", token);
+    },
+
+    actions: {
+      loadChefs(context) {
+        axios
+          .get("https://randomuser.me/api/?results=200/vue_pagination/db")
+          .then((response) => {
+            let reversed = response.data.results.reverse();
+            context.commit("SET_CHEFS", reversed);
+          });
+      },
+    },
+  },
+  getters: {
+    chefs(state) {
+      return state.chefs;
+    },
+    isUserLoggedIn(state) {
+      return state.isUserLoggedIn;
+    },
+   
+  },
 });

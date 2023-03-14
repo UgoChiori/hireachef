@@ -125,7 +125,7 @@ h1 {
  @media screen and (max-width: 768px) {
   .chef-image {
     /* border: 1px solid black; */
-    margin: 5px;
+    margin: 0 2px;
   }
   .list-container{
   display: grid;

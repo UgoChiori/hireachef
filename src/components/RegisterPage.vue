@@ -20,7 +20,7 @@
 
       <div class="button">
         <button @click="register">Submit</button>
-        <button @click="signInWithGoogle">Sign in with Google</button>
+        <button @click="signInWithGoogle">Register with Google</button>
       </div>
       <div class="footer">
         <p>

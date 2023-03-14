@@ -13,6 +13,7 @@
       </p>
     </div>
     <div alt="input-field">
+      <input type="text" placeholder="Name" v-model="name" />
       <input type="text" placeholder="Email" v-model="email" />
 
       <input type="password" placeholder="Password" v-model="password" />
@@ -23,8 +24,20 @@
       <p v-if="errMsg">{{ errMsg }}</p>
 
       <div class="button">
-        <button @click="signIn">Submit</button>
-        <button @click="signInWithGoogle">Sign In With Google</button>
+        <button v-if="isAuthenticated" @click="signInWithGoogle">
+          Sign In
+        </button>
+
+        <div v-if="isAuthenticated">
+          <button @click="signOut">Sign Out</button>
+        </div>
+        <div v-else>
+          <button @click="signInWithGoogle">Sign In with Google</button>
+        </div>
+
+        <div v-if="!isAuthenticated" @click="hideSignIn">
+          {{ hideSignIn }}
+      </div>
       </div>
     </div>
   </div>
@@ -32,57 +45,35 @@
 
 <script setup>
 import { ref } from "vue";
+
 import {
   getAuth,
-  signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut as signOutUser,
 } from "firebase/auth";
 import { useRouter } from "vue-router";
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
+const isAuthenticated = ref(false);
 const router = useRouter();
-
-const signIn = () => {
-  signInWithEmailAndPassword(getAuth(), email.value, password.value)
-    .then((data) => {
-      console.log("Successfully Signed In", data);
-      router.push("/chefs");
-    })
-    .catch((error) => {
-      console.log(error);
-      switch (error.code) {
-        case "auth/invalid-email":
-          errMsg.value = "Invalid email address";
-          break;
-        case "auth/user-not found":
-          errMsg.value = "User not found";
-          break;
-        case "auth/wrong-password":
-          errMsg.value = "Wrong password";
-          break;
-        default:
-          errMsg.value = "Email or password is incorrect";
-          break;
-      }
-    });
-};
 
 const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
-  signInWithPopup(getAuth(), provider)
-    .then((result) => {
-      console.log(result.user);
-      router.push("/chefs");
-      
-      
-    })
-    .catch((error) => {
-      console.log(error);
-      alert(error.message);
-    });
-    
+  signInWithPopup(getAuth(), provider).then((result) => {
+    isAuthenticated.value = true;
+    console.log(result.user);
+    router.push("/chefs");
+  });
+};
+
+const signOut = () => {
+  signOutUser(getAuth()).then(() => {
+    isAuthenticated.value = false;
+    router.push("/");
+    console.log("Signed out");
+  });
 };
 </script>
 <style>
@@ -127,7 +118,7 @@ const signInWithGoogle = () => {
 .wrapper input {
   width: 100%;
   height: 40px;
-  border: 1px solid rgb(74, 69, 69);;
+  border: 1px solid rgb(74, 69, 69);
   border-radius: 5px;
   background: #fff;
   padding: 0 20px;
@@ -191,7 +182,7 @@ h1 {
   background-color: white;
   transition: all 0.3s ease;
 }
-.forgot-password a{
+.forgot-password a {
   color: black;
 }
 @media screen and (max-width: 768px) {
@@ -213,29 +204,29 @@ h1 {
     margin-bottom: 10px;
     outline: none;
   }
- .button button {
-  width: 100px;
-  height: 40px;
-  background: black;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding: 0 5px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  font-size: 10px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: whitesmoke;
-  
-} 
-.forgot-password a{
-  color: black;
-  font-size: 14px;
-}
-h1{
-  font-size: 20px;
-  margin-bottom: 10px;}
+  .button button {
+    width: 100px;
+    height: 40px;
+    background: black;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: whitesmoke;
+  }
+  .forgot-password a {
+    color: black;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }
 </style>
