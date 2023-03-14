@@ -86,8 +86,31 @@
  #chef-image
   
   img {
-    width: 100%;
+    width: 80%;
     height: 100%;
+    /* border: 2px solid black; */
+    border-radius: 45%;
+    /* margin-bottom: 200px; */
+  }
+  .home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 70px; */
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+   
+  }
+  .home-button{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
   }
 }
 </style>
