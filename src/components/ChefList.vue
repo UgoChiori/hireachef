@@ -1,5 +1,7 @@
 <template>
   <h1>Chefs</h1>
+  <h2 v-if="username">Hello, {{ username }}</h2>
+  
   <div class="list-container">
     <div v-for="item in chefs" v-bind:key="item.id">
       <div class="list-items">
@@ -28,12 +30,15 @@
 import axios from "axios";
 import router from "@/router";
 import { useRouter } from "vue-router";
-
-import { ref } from "vue";
+import { } from "vuex";
+import { ref} from "vue";
 
 useRouter();
 
 const chefs = ref([]);
+
+
+
 
 export default {
   name: "ChefList",
@@ -43,6 +48,7 @@ export default {
     return {
       chefs: [],
       pageNumber: 1,
+      user: null,
     };
   },
   created() {
@@ -50,6 +56,8 @@ export default {
       // console.log(response.data);
       this.item = response.data.results;
       this.chefs = response.data.results;
+      // this.user = response.data.name;
+      console.log(this.user);
 
       // console.log(this.chefs + " pages: " + totalPages.value);
     }),
@@ -74,6 +82,7 @@ export default {
       console.log("Message");
       alert("Currently under construction!");
     },
+
   },
 };
 </script>
@@ -122,21 +131,20 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 100px;
 }
- @media screen and (max-width: 768px) {
-  
-  .list-container{
-  display: grid;
-   grid-template-rows: repeat(1, 1fr);
-   grid-gap: 2px;
-  justify-items: center;
-  align-items: center;
-  margin: 1px;
-  padding: 5px;
-  margin-top: 50px;
-  margin-bottom: 200px;
-  width: 50%;
-  flex-wrap: nowrap;
-}
+@media screen and (max-width: 768px) {
+  .list-container {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 2px;
+    justify-items: center;
+    align-items: center;
+    margin: 1px;
+    padding: 5px;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    width: 50%;
+    flex-wrap: nowrap;
+  }
   .list-items {
     border: 1px solid black;
     border-radius: 8px;
@@ -156,7 +164,6 @@ h1 {
     height: 50px;
   }
   h1 {
-   
     text-align: center;
     font-size: 1.5em;
     font-style: italic;

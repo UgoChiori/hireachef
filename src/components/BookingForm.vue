@@ -14,7 +14,12 @@
       </div>
       <div class="form-group">
         <label for="guests">Guests</label>
-        <input type="number" id="guests" v-model="guests" placeholder="Number Of Guests" />
+        <input
+          type="number"
+          id="guests"
+          v-model="guests"
+          placeholder="Number Of Guests"
+        />
       </div>
       <div class="form-group">
         <label for="location">Location</label>
@@ -25,16 +30,16 @@
         <textarea id="special-requests" v-model="specialRequests"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" 
-        v-on:click="onClickBook"
-
-        >Book</button>
+        <button type="submit" v-on:click="onClickBook">Book</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+
+
+
 
 
 export default {
@@ -57,13 +62,25 @@ export default {
       console.log(this.location);
       console.log(this.specialRequests);
     },
-     onClickBook() {
-      alert("Booking Confirmed, " + this.date + " " + this.time + " " + this.guests + " " + this.location + " " + this.specialRequests + " Thank you for booking with Hire a Chef! ");
+    onClickBook() {
+      alert(
+        "Booking Confirmed, " +
+          this.date +
+          " " +
+          this.time +
+          " " +
+          this.guests +
+          " " +
+          this.location +
+          " " +
+          this.specialRequests +
+          " Thank you for booking with Hire a Chef! ",
+          
+      );
+     
       
+    },
   },
-  },
-   
-
 };
 </script>
 
@@ -125,7 +142,7 @@ export default {
     margin: 0 auto;
     padding: 20px;
     border: none;
-    
+
     margin-top: 250px;
     border-radius: 5px;
     background-color: rgb(189, 186, 186);

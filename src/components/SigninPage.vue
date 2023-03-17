@@ -4,6 +4,7 @@
       <img src="../assets/chef.png" alt="chef" />
     </div>
   </div>
+
   <div class="wrapper">
     <h1>Sign In</h1>
     <div class="details">
@@ -15,7 +16,6 @@
     <div alt="input-field">
       <input type="text" placeholder="Name" v-model="name" />
       <input type="text" placeholder="Email" v-model="email" />
-
       <input type="password" placeholder="Password" v-model="password" />
       <p class="forgot-password">
         <a href="#">Forgot Password?</a>
@@ -24,20 +24,15 @@
       <p v-if="errMsg">{{ errMsg }}</p>
 
       <div class="button">
-        <button v-if="isAuthenticated" @click="signInWithGoogle">
+        <button @click="signInWithGoogle">
           Sign In
         </button>
 
-        <div v-if="isAuthenticated">
-          <button @click="signOut">Sign Out</button>
-        </div>
-        <div v-else>
-          <button @click="signInWithGoogle">Sign In with Google</button>
-        </div>
+        <!-- <button @click="signOut">Sign Out</button> -->
 
-        <div v-if="!isAuthenticated" @click="hideSignIn">
-          {{ hideSignIn }}
-      </div>
+        <!-- <button @click="signInWithGoogle">Sign In with Google</button> -->
+
+      
       </div>
     </div>
   </div>
@@ -50,7 +45,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut as signOutUser,
+  // signOut as signOutUser,
 } from "firebase/auth";
 import { useRouter } from "vue-router";
 const email = ref("");
@@ -64,17 +59,18 @@ const signInWithGoogle = () => {
   signInWithPopup(getAuth(), provider).then((result) => {
     isAuthenticated.value = true;
     console.log(result.user);
+    localStorage.setItem("user", "loggedIn");
     router.push("/chefs");
   });
 };
 
-const signOut = () => {
-  signOutUser(getAuth()).then(() => {
-    isAuthenticated.value = false;
-    router.push("/");
-    console.log("Signed out");
-  });
-};
+// const signOut = () => {
+//   signOutUser(getAuth()).then(() => {
+//     isAuthenticated.value = false;
+//     router.push("/");
+//     console.log("Signed out");
+//   });
+// };
 </script>
 <style>
 .inner {
@@ -105,7 +101,6 @@ const signOut = () => {
   height: 100%;
   border-radius: 0px 10px 10px 0px;
   margin-top: 150px;
-
 }
 .wrapper label {
   color: #fff;

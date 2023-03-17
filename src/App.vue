@@ -2,8 +2,8 @@
   <nav class="route-buttons">
     <router-link to="/">Home</router-link>
     <router-link to="/chefs">Chefs</router-link>
-    <router-link to="/signin">Signin</router-link>
-    <router-link to="/register">Register</router-link>
+    <router-link v-if="!isLoggedIn" to="/signin">Signin</router-link>
+    <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
     <button @click="handleSignOut" v-if="isLoggedIn" class="signout">
       Sign Out
     </button>
@@ -16,10 +16,8 @@ import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "vue-router";
 // import PaginationPage from './data/PaginationPage.vue'
-
 const isLoggedIn = ref(false);
 const router = useRouter();
-
 let auth;
 onMounted(() => {
   auth = getAuth();
@@ -31,7 +29,6 @@ onMounted(() => {
     }
   });
 });
-
 const handleSignOut = () => {
   signOut(auth).then(() => {
     router.push("/");

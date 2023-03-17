@@ -1,46 +1,90 @@
-import Vue from "vue";
-import Vuex from "vuex";
+// import Vue from "vue";
+import {createStore} from "vuex";
 import axios from "axios";
 
-Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-    chefs: [],
-    chef: {},
+
+const store = createStore({
+  state() {
+    return {
+      username: '',
+      loggedIn: false,
+    }
   },
   mutations: {
-    SET_CHEFS(state, chefs) {
-      state.chefs = chefs;
-      state.chef.isUserLoggedIn = !!localStorage.getItem("token");
-    },
-    cleanAuth(state) {
-      state.chef.isUserLoggedIn = false;
-      localStorage.removeItem("token");
-    },
-    setAuth(state, token) {
-      state.chef.isUserLoggedIn = true;
-      localStorage.setItem("token", token);
-    },
-
-    actions: {
-      loadChefs(context) {
-        axios
-          .get("https://randomuser.me/api/?results=200/vue_pagination/db")
-          .then((response) => {
-            let reversed = response.data.results.reverse();
-            context.commit("SET_CHEFS", reversed);
-          });
-      },
-    },
+    setUsername(state, username) {
+      state.username = username;
+    }
   },
-  getters: {
-    chefs(state) {
-      return state.chefs;
-    },
-    isUserLoggedIn(state) {
-      return state.isUserLoggedIn;
-    },
-   
-  },
+  actions: {
+    fetchUsername({commit}) {
+      axios.get('https://jsonplaceholder.typicode.com/users/1')
+      .then(res => {
+        commit('setUsername', res.data.username);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
+    }
 });
+export default store;
+// use(Vuex);
+// //set state using firebase
+
+// export default new Vuex.Store({
+//   state: {
+//     loggedIn: false,
+//   },
+//   mutations: {
+//     login(state) {
+//       state.loggedIn = true;
+//     },
+//     logout(state) {
+//       state.loggedIn = false;
+//     },
+//   },
+//   actions: {
+//     login({ commit }) {
+//       commit("login");
+//     },
+//     logout({ commit }) {
+//       commit("logout");
+//     },
+//   },
+//   modules: {
+//     // auth, // auth: auth
+//   },
+
+//   getters: 
+//   { isLoggedIn: (state) => state.loggedIn },
+//   fetchUser({ commit }, user) {
+//     commit("setUser", user);
+//   },
+//   setUser(state, user) {
+//     state.user = user;
+//   },
+//   // fetch data from axios
+//   axios.
+//   })
+// });
+
+// export default new Vuex.Store({
+//   state: {
+//     loggedIn: false,
+//   },
+//   mutations: {
+//     login(state) {
+//       state.loggedIn = true;
+//     },
+//     logout(state) {
+//       state.loggedIn = false;
+//     },
+//     cleanAuth(state) {
+//       state.chef.isUserLoggedIn = false;
+//       localStorage.removeItem("token");
+//     },
+
+//   },
+
+// });
