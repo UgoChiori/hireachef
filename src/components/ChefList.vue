@@ -41,6 +41,7 @@ const chefs = ref([]);
 
 
 export default {
+
   name: "ChefList",
   components: {},
 

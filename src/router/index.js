@@ -28,7 +28,8 @@ const router = createRouter({
       path: "/chefs/:id/bookingform",
       component: () => import("../components/BookingForm.vue"),
 
-    }
+    },
+    {path: "/notFound(.*)", component: () => import("../components/NotFound.vue")}
   ],
 });
 

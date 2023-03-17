@@ -8,6 +8,7 @@
       Sign Out
     </button>
   </nav>
+  
   <router-view />
 </template>
 
@@ -15,7 +16,7 @@
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "vue-router";
-// import PaginationPage from './data/PaginationPage.vue'
+
 const isLoggedIn = ref(false);
 const router = useRouter();
 let auth;
@@ -45,18 +46,16 @@ const handleSignOut = () => {
   color: #2c3e50;
   margin-top: 60px;
   overflow: hidden;
-  /* background: rgb(180, 106, 171); */
+ 
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  /* background: rgb(180, 106, 171); */
+
 }
-body {
-  /* background: rgb(22, 22, 22) */
-}
+
 nav {
   display: flex;
   justify-content: space-evenly;
@@ -108,7 +107,7 @@ nav a:hover {
   nav {
     flex-direction: column;
     position: absolute;
-    /* border: 1px solid red; */
+   
   }
   nav a {
     margin: 5px;

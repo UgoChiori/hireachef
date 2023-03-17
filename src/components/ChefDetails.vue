@@ -24,8 +24,9 @@
   </div>
   <div class="chef-button">
     <button v-on:click="onClickBookNow">Book Now</button>
-    <button>Message</button>
+    <button v-on:click="onClickMessage">Message</button>
   </div>
+  <router-link to="/">Go to Home</router-link>
 </template>
 
 <script>
@@ -57,6 +58,12 @@ export default {
       console.log("Book Now");
       router.push("/chefs/:id/bookingform");
     },
+    onClickMessage() {
+     
+      console.log("Message");
+      alert("Currently under construction!");
+    },
+    
   },
 };
 </script>
