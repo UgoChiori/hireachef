@@ -99,12 +99,13 @@ export default {
     height: 200px;
     margin-left: 35px;
     margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   /* border-radius: 8px;
   margin: 10px;
   width: 400px;
   height: 200px;
   background-color: #e1dddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 .chef-image {
   margin-left: 10px;
