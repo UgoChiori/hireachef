@@ -95,11 +95,7 @@ export default {
   width: 100%;
 }
 .list-items {
-  width: 350px;
-    height: 200px;
-    margin-left: 35px;
-    margin-top: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
    border-radius: 8px;
   margin: 10px;
   width: 400px;
@@ -146,11 +142,16 @@ h1 {
     flex-wrap: nowrap;
   }
   .list-items {
-    border-radius: 8px;
+    /* border-radius: 8px;
     margin: 25px;
-    /* width: 150px; */
+    width: 150px;
     height: 200px;
     background-color: #e1dddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    width: 350px;
+    height: 200px;
+    margin-left: 35px;
+    margin-top: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   .list-items-deets {
