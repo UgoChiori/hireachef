@@ -1,7 +1,7 @@
 <template>
   <h1>Chefs</h1>
   <h2 v-if="username">Hello, {{ username }}</h2>
-  
+
   <div class="list-container">
     <div v-for="item in chefs" v-bind:key="item.id">
       <div class="list-items">
@@ -30,18 +30,14 @@
 import axios from "axios";
 import router from "@/router";
 import { useRouter } from "vue-router";
-import { } from "vuex";
-import { ref} from "vue";
+import {} from "vuex";
+import { ref } from "vue";
 
 useRouter();
 
 const chefs = ref([]);
 
-
-
-
 export default {
-
   name: "ChefList",
   components: {},
 
@@ -83,7 +79,6 @@ export default {
       console.log("Message");
       alert("Currently under construction!");
     },
-
   },
 };
 </script>
@@ -97,6 +92,7 @@ export default {
   margin: 10px;
   padding: 10px;
   margin-top: 100px;
+  width: 100%;
 }
 .list-items {
   border-radius: 8px;
@@ -116,12 +112,12 @@ export default {
 }
 .chef-button {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
   width: 400px;
-  height: 50px;
+  /* height: 50px; */
 }
 
 h1 {
@@ -134,43 +130,40 @@ h1 {
 }
 @media screen and (max-width: 768px) {
   .list-container {
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 2px;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 1px;
     padding: 5px;
     margin-top: 50px;
     margin-bottom: 200px;
-    width: 50%;
+    width: 100%;
     flex-wrap: nowrap;
   }
   .list-items {
-    border: 1px solid black;
     border-radius: 8px;
-    margin: 5px;
-    width: 150px;
+    margin: 25px;
+    /* width: 150px; */
     height: 200px;
     background-color: #e1dddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
-  .chef-button {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 5px;
-    padding: 5px;
-    width: 150px;
-    height: 50px;
+  .list-items-deets {
+    margin-left: 10px;
+    font-style: italic;
   }
   h1 {
     text-align: center;
     font-size: 1.5em;
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 300px;
+    margin-top: 200px;
     font-weight: 200;
+  }
+  .chef-image {
+    margin-left: 10px;
+    border-radius: 50%;
   }
 }
 </style>

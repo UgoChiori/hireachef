@@ -106,11 +106,7 @@ h4 {
   margin-left: 10px;
 }
 .chef-button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 550px;
-  padding: 10px;
+  
 }
 
 @media (max-width: 768px) {
