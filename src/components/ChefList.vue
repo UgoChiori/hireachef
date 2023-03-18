@@ -100,7 +100,7 @@ export default {
     margin-left: 35px;
     margin-top: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  /* border-radius: 8px;
+   border-radius: 8px;
   margin: 10px;
   width: 400px;
   height: 200px;
